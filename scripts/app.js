@@ -50,6 +50,12 @@
    *
    ****************************************************************************/
 
+  
+/* Event listener for clear button */
+  document.getElementById('butClear').addEventListener('click', function() {
+    app.clearList();
+  });
+
   /* Event listener for refresh button */
   document.getElementById('butRefresh').addEventListener('click', function() {
     app.updateForecasts();
@@ -146,6 +152,30 @@
   };
 
 
+ // Remove cards from the list
+ app.clearList = function (data) {
+    
+    app.selectedCities = [];
+    app.visibleCards = [];
+    app.saveSelectedCities();
+    
+    window.localforage.clear().then(function() {
+      // Run this code once the database has been entirely deleted.
+      console.log('Database is now empty.');
+    }).catch(function(err) {
+      // This code runs if there were any errors
+      console.log(err);
+    });
+    
+
+    var elements = document.getElementsByClassName('card');
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+
+ };
+
+
   /*****************************************************************************
    *
    * Methods for dealing with the model
@@ -171,8 +201,9 @@
     request.send();
   };
 
+
   // Iterate all of the cards and attempt to get the latest forecast data
-  app.updateForecasts = function() {
+  app.updateForecasts = function(visible) {
     var keys = Object.keys(app.visibleCards);
     keys.forEach(function(key) {
       app.getForecast(key);

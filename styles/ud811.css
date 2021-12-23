@@ -92,6 +92,9 @@ body {
     border: none;
     outline: none;
     cursor: pointer; }
+
+  .header #butClear {
+    background: url(/images/ic_clear_white_24px.svg) center center no-repeat; }
   .header #butRefresh {
     background: url(/images/ic_refresh_white_24px.svg) center center no-repeat; }
   .header #butAdd {
