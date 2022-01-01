@@ -48,10 +48,10 @@ self.addEventListener('activate', function(e) {
   );
 });
 
-/* When a fetch is requested, udentify the right response to the request in the cache. If fails, return request. */
+/* When a fetch is requested, udentify the right response to the request in the cache. If fails, requests data from the server. */
 
 self.addEventListener('fetch', function(e) {
-  console.log('[ServiceWorker] Fetch', e.request.url);
+  console.log('[ServiceWorker] Fetchy Fetch Fetch', e.request.url);
   e.respondWith(
     caches.match(e.request).then(function(response) {
       return response || fetch(e.request);
