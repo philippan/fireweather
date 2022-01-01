@@ -2,6 +2,8 @@
 (function() {
   'use strict';
 
+  /******** Philip's Version ********/
+
   var injectedForecast = {
     key: 'newyork',
     label: 'New York, NY',
@@ -51,7 +53,7 @@
    ****************************************************************************/
 
   
-/* Event listener for clear button */
+  /* Event listener for clear button */
   document.getElementById('butClear').addEventListener('click', function() {
     app.clearList();
   });
@@ -235,6 +237,14 @@ app.saveSelectedCities = function() {
       }
     });    
   });
+
+if ('serviceWorker' in navigator) {
+   navigator.serviceWorker
+   .register('/service-worker.js')
+   .then(function() {
+      console.log('Service Worker Registered')
+   });
+}
 
 
 })();
