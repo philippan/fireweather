@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  /******** Philip's Version ********/
+  /******** Philip's App ********/
 
   var injectedForecast = {
     key: 'newyork',
