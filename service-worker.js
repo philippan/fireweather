@@ -1,5 +1,6 @@
 /***** Philip's ServiceWorker ******/
-var cacheName = 'weatherPWA-v1';
+var cacheName = 'weatherPWA-v2';
+var dataCacheName = 'weatherData-v2';
 var filesToCache = [
   '/',
   '/index.html',
