@@ -1,6 +1,6 @@
 /***** Philip's ServiceWorker ******/
 var cacheName = 'weatherPWA-v2';
-var dataCacheName = 'weatherData-v2';
+var dataCacheName = 'weatherData-v2';git
 var filesToCache = [
   '/',
   '/index.html',
@@ -40,7 +40,7 @@ self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keyList) {
       return Promise.all(keyList.map(function(key) {
-        if (key !== cacheName) {
+        if (key !== cacheName && key !== dataCacheName) {
           console.log('[ServiceWorker] Removing old cache', key);
           return caches.delete(key);
         }
